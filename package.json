@@ -1,0 +1,28 @@
+{
+  "name": "garmin-fit-sport-editor",
+  "version": "1.0.0",
+  "description": "Editor web para dividir actividades FIT de Garmin en segmentos con distintos tipos de deporte (duatlón, triatlón, multideporte)",
+  "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "garmin",
+    "fit",
+    "duathlon",
+    "triathlon",
+    "multisport",
+    "activity",
+    "editor"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@garmin/fitsdk": "^21.194.0",
+    "chart.js": "^4.4.7"
+  },
+  "devDependencies": {
+    "vite": "^6.1.0"
+  }
+}

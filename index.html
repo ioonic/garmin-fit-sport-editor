@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FIT Sport Editor - Garmin Multideporte</title>
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="header">
+      <h1>FIT Sport Editor</h1>
+      <p class="subtitle">Divide tu actividad en segmentos y asigna el tipo de deporte correcto</p>
+    </header>
+
+    <!-- Step 1: Upload -->
+    <section id="upload-section" class="section">
+      <div id="drop-zone" class="drop-zone">
+        <div class="drop-zone-content">
+          <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="17 8 12 3 7 8"/>
+            <line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>
+          <p class="drop-text">Arrastra tu archivo <strong>.FIT</strong> aquí</p>
+          <p class="drop-subtext">o haz clic para seleccionar</p>
+        </div>
+        <input type="file" id="file-input" accept=".fit" hidden />
+      </div>
+    </section>
+
+    <!-- Loading -->
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <p>Decodificando archivo FIT...</p>
+    </div>
+
+    <!-- Step 2: Activity Summary + Chart -->
+    <section id="editor-section" class="section hidden">
+      <!-- Activity Summary -->
+      <div class="activity-summary" id="activity-summary">
+        <div class="summary-card">
+          <span class="summary-label">Deporte original</span>
+          <span class="summary-value" id="summary-sport">-</span>
+        </div>
+        <div class="summary-card">
+          <span class="summary-label">Duración</span>
+          <span class="summary-value" id="summary-duration">-</span>
+        </div>
+        <div class="summary-card">
+          <span class="summary-label">Distancia</span>
+          <span class="summary-value" id="summary-distance">-</span>
+        </div>
+        <div class="summary-card">
+          <span class="summary-label">FC Media</span>
+          <span class="summary-value" id="summary-hr">-</span>
+        </div>
+      </div>
+
+      <!-- Chart -->
+      <div class="chart-container">
+        <div class="chart-toolbar">
+          <h2>Gráfica de Velocidad</h2>
+          <p class="chart-help">Haz clic en la gráfica para colocar puntos de corte</p>
+        </div>
+        <div class="chart-wrapper">
+          <canvas id="speed-chart"></canvas>
+        </div>
+      </div>
+
+      <!-- Presets -->
+      <div class="presets">
+        <h3>Presets rápidos</h3>
+        <div class="preset-buttons">
+          <button class="btn btn-preset" data-preset="duathlon">Duatlón (Carrera - Bici - Carrera)</button>
+          <button class="btn btn-preset" data-preset="triathlon">Triatlón (Natación - Bici - Carrera)</button>
+        </div>
+      </div>
+
+      <!-- Segments Table -->
+      <div class="segments-container">
+        <h3>Segmentos</h3>
+        <table id="segments-table" class="segments-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Inicio</th>
+              <th>Fin</th>
+              <th>Duración</th>
+              <th>Distancia</th>
+              <th>Deporte</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="segments-body">
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Actions -->
+      <div class="actions">
+        <button id="btn-reset" class="btn btn-secondary">Reiniciar cortes</button>
+        <button id="btn-download" class="btn btn-primary">Descargar FIT modificado</button>
+      </div>
+
+      <!-- New file button -->
+      <div class="new-file">
+        <button id="btn-new-file" class="btn btn-ghost">Cargar otro archivo</button>
+      </div>
+    </section>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
