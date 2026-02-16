@@ -26,7 +26,7 @@ El archivo resultante se puede subir a Garmin Connect y mostrará correctamente 
 
 ```bash
 # Clonar el repositorio
-git clone https://github.com/tu-usuario/garmin-fit-sport-editor.git
+git clone https://github.com/ioonic/garmin-fit-sport-editor.git
 cd garmin-fit-sport-editor
 
 # Instalar dependencias
